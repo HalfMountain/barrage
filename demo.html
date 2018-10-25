@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            height: 300px;
+            background: yellow;
+            position: relative;
+        }
+
+        .box1 {
+            position: absolute;
+            top: 0;
+            right: -70px;
+            font-size: 14px;
+        }
+
+        .initial {
+            position: absolute;
+            right: -70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="box1" id="box1">我是测试一</div>
+    </div>
+    <div>
+        <input type="text" id="ipt">
+        <input type="button" value="确定" id="btn">
+    </div>
+    <script>
+
+        let box1 = document.getElementById('box1');
+        let ipt = document.getElementById('ipt');
+        let btn = document.getElementById('btn');
+        let box = document.getElementById('box');
+        let obj = [18,20,25,30,35];
+
+        btn.addEventListener('click', upLoad)
+        barRage(box1);
+        function upLoad() {
+            let iptInfo = ipt.value;
+            var newDiv = document.createElement('div');
+            newDiv.innerHTML = iptInfo;
+            newDiv.className = 'initial';
+            newDiv.style.top = (Math.random() * 10) * (Math.random() * 10) + 'px';
+            box.appendChild(newDiv);
+            let initial = document.getElementsByClassName('initial');
+            barRage(box.children[box.children.length-1])
+        }
+
+        function barRage(num) {
+            let count = 0;
+            (function () {
+          
+                let xx = obj[Math.floor(Math.random()*10)]
+                if(xx == undefined){
+                    xx = 30
+                }
+                setInterval(function () {
+                    count++;
+                   num.style.right = (count - 70) + 'px';
+                }, xx)
+            })()
+        }
+
+    </script>
+</body>
+
+</html>
