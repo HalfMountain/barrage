@@ -1,0 +1,37 @@
+1.用户名和邮箱地址的作用
+  用户名和邮箱地址是本地git客户端的一个变量，不随git库而改变
+  每次commit都会用用户名和邮箱记录
+  github的contributions统计就是按邮箱来统计的
+
+2.查看用户名和邮箱地址
+  git config user.name 
+  git config user.email 
+
+3.修改用户名和邮箱地址
+  git config --global user.name "xxx"
+  git config --global user.email "email"
+
+4.关联本地仓库并上传代码
+  git remote add origin https://---      (注意)
+  git push origin master
+
+5.撤销操作
+  git reset HEAD 如果后面什么都不跟的话 就是上一次add 里面的全部撤销了
+  git reset HEAD xx 就是对某个文件进行撤销
+  git reset -hard id 撤销commit 
+ 
+
+6.分支
+  git checkout -b xxx 创建分支并切换当前  
+
+  git branch xxx 创建本地分支
+  git branch -l/-r/-a 查看本地分支/远程分支/远程的和本地的
+  git checkout xxx 切换分支
+
+
+  git push origin xxx:xxx  指定本地分支上传到远程分支
+
+  git branch -d xxx 删除本地分支
+  git push origin :xx 删除远程分支
+
+  git merge xxx 合并分支
