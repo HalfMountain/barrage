@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>递归倒计时</title>
+</head>
+<body>
+    <div onclick="setTime(this)">点击我倒计时</div>
+    <script>
+    let second = '60';
+    // function setTime(node){
+    //     if(second == '0'){
+    //         node.innerHTML = '点击我倒计时';
+    //         second = '60';
+    //         return;
+    //     }else{
+    //         node.innerHTML = second + 's';
+    //         second--;
+    //     }
+    //     setTimeout(function(){
+    //         setTime(node)
+    //     },100)
+    // }
+    let setTime = node=>{
+        if(second == 0){
+            node.innerHTML = '点击我倒计时';
+            second = '60';
+            return;
+        }else{
+            node.innerHTML = second + 's';
+            second--;
+        }
+        setTimeout(()=>setTime(node),1000)
+    } 
+    
+    </script>
+</body>
+</html>
